@@ -1,0 +1,25 @@
+  .datetime-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: rgb(65, 16, 229);
+    color: beige;
+  }  
+
+  .time, .date {
+    font-size: 1em; /* Ajusta el tamaño del texto */
+    margin: 0;
+  }
+
+  .date {
+    text-align: left;
+    flex: 1;
+  }
+  
+  .time {
+    text-align: right;
+    flex: 1;
+  }
+  
