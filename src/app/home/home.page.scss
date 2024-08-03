@@ -26,10 +26,10 @@
 }
 
 .center-button {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .titulo {
@@ -40,7 +40,17 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
 .container{
   padding-left: 20px;
+}
+
+/* ++++++++ Formatting the icon ++++++++ */
+.image-weather-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.weather-icon{
+  width: 200px;
+  height:200px;
 }

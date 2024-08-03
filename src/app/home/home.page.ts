@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
+import { WeatherAPI } from '../interfaces/weatherApi';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,10 @@ import { WeatherService } from '../weather.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  weatherData: any;
+  weatherData!: WeatherAPI;
   city: string = 'Guayaquil';
+  tempCity: number = 0;
+  weatherImage = "";
 
   constructor(private weatherService: WeatherService) {}
 
@@ -18,14 +21,27 @@ export class HomePage implements OnInit {
 
   getWeather() {
     this.weatherService.getWeather(this.city).subscribe(
-      data => {
+      (data: WeatherAPI) => {
         this.weatherData = data;
-        console.log(this.weatherData);
+        this.tempCity = this.weatherData.main.temp;
+        this.validateTemperatura();
+        console.log('Weather: ', this.weatherData);
       },
       err => {
         console.log(err);
       }
     );
+  }
+
+  validateTemperatura() {
+    if (this.tempCity >= 30) {
+      console.log('HACE CALOR')
+      this.weatherImage = "../../assets/img/Sunny.png"
+    } 
+    if (this.tempCity > 20 && this.tempCity < 30) {
+      console.log('ESTA FRESCO')
+      this.weatherImage = "../../assets/img/Cloudy.png"
+    }
   }
 }
 

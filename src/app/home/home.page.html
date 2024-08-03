@@ -9,20 +9,26 @@
 
 <ion-content>
 
-<app-date-time-display></app-date-time-display>
+  <app-date-time-display></app-date-time-display>
 
   <ion-item>
     <ion-label class="titulo" position="floating">City</ion-label>
     <ion-input [(ngModel)]="city"></ion-input>
   </ion-item>
-  
+
   <div class="center-button">
-    <ion-button expand="full" (click)="getWeather()">Obtener el clima</ion-button>
-  </div>  
-  
+    <ion-button expand="full" shape="round" (click)="getWeather()">Obtener el clima</ion-button>
+  </div>
+
   <div *ngIf="weatherData" class="container">
     <h2>{{ weatherData.name }}</h2>
     <p>Temperature: {{ weatherData.main.temp }}°C</p>
     <p>Weather: {{ weatherData.weather[0].description }}</p>
+
+    <!-- Condiciono que se icono se muetra -->
+    <div class="image-weather-container">
+      <ion-img src="{{weatherImage}}" width="20" height="20" class="weather-icon"></ion-img>
+    </div>
+    
   </div>
 </ion-content>
